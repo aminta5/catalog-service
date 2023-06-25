@@ -7,3 +7,20 @@ server:
     threads:
       max: 50
       min-spare: 5
+polar:
+  greeting: Welcome to the local polar book catalog LOCAL!
+  testdata:
+    enabled: true
+spring:
+  application:
+    name: catalog-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
