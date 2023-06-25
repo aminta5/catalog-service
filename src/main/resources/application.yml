@@ -19,6 +19,16 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+  datasource:
+    username: filip
+    password: filip
+    url: jdbc:postgresql://localhost:5433/springCloudFilip
+    hikari:
+      connection-timeout: 2000
+      maximum-pool-size: 5
+  sql:
+    init:
+      mode: always
 management:
   endpoints:
     web:
