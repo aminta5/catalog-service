@@ -47,6 +47,7 @@ public class BookController {
   }
 
   @DeleteMapping("{isbn}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteBook(@PathVariable String isbn) {
     bookService.removeBookFromCatalog(isbn);
   }

@@ -26,9 +26,9 @@ spring:
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 5
-  sql:
-    init:
-      mode: always
+#  sql:
+#    init:
+#      mode: always  ----> this was removed when we deleted schema.sql and when we introduced flyway
 management:
   endpoints:
     web:
