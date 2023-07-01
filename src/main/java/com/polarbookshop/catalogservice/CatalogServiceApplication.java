@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties({PolarProperties.class, PolarTestDataProperties.class})
+@EnableConfigurationProperties( {PolarProperties.class, PolarTestDataProperties.class})
 public class CatalogServiceApplication {
 
   public static void main(String[] args) {
