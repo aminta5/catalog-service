@@ -24,7 +24,7 @@ class CatalogServiceApplicationTests {
   @Test
   void whenGetRequestWithIdThanBookReturned() {
     var bookIsbn = "1231231230";
-    var bookToCreate = Book.of(bookIsbn, "Title", "Author", 12.90);
+    var bookToCreate = Book.of(bookIsbn, "Title", "Author", 12.90, "Polarsophia");
     Book expectedBook = webTestClient
         .post()
         .uri("/books")
@@ -48,7 +48,7 @@ class CatalogServiceApplicationTests {
 
   @Test
   void test_whenPostRequestThenBookIsCreated() {
-    var expectedBook = Book.of("1231231231", "Title", "Author", 9.90);
+    var expectedBook = Book.of("1231231231", "Title", "Author", 9.90, "Polarsophia");
 
     webTestClient.post()
         .uri("/books")
@@ -65,7 +65,7 @@ class CatalogServiceApplicationTests {
   void whenPutRequestThanBookUpdated() {
 
     var bookIsbn = "1231231232";
-    var bookToCreate = Book.of(bookIsbn, "Title", "Author", 12.90);
+    var bookToCreate = Book.of(bookIsbn, "Title", "Author", 12.90, "Polarsophia");
 
     Book createdBook = webTestClient
         .post()
@@ -79,7 +79,8 @@ class CatalogServiceApplicationTests {
     var bookToUpdate = new Book(createdBook.id(),
         createdBook.isbn(),
         createdBook.title(),
-        createdBook.author(), 8.22,
+        createdBook.author(),
+        createdBook.publisher(),8.22,
         createdBook.createdDate(),
         createdBook.lastModifiedDate(),
         createdBook.version());
@@ -99,7 +100,7 @@ class CatalogServiceApplicationTests {
   @Test
   void whenDeleteRequestThabBookDeleted() {
     var bookIsbn = "1231231233";
-    var bookToCreate = Book.of(bookIsbn, "Title", "Author", 22.22);
+    var bookToCreate = Book.of(bookIsbn, "Title", "Author", 22.22, "Polarsophia");
     webTestClient
         .post()
         .uri("/books")

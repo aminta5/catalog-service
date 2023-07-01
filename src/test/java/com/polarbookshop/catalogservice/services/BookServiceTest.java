@@ -27,7 +27,7 @@ class BookServiceTest {
   @Test
   void test_addBookToCatalog_throws_BookAlreadyExistsException() {
     var isbn = "1234567890";
-    var  book = Book.of(isbn, "Title", "Author", 9.90);
+    var  book = Book.of(isbn, "Title", "Author", 9.90, "Polarsophia");
     when(bookRepository.existsByIsbn(isbn)).thenReturn(true);
     assertThatThrownBy(() -> bookService.addBookToCatalog(book))
         .isInstanceOf(BookAlreadyExistsException.class)
@@ -37,7 +37,7 @@ class BookServiceTest {
   @Test
   void test_viewBookDetails_throws_BookNotFoundException() {
     var isbn = "1234567890";
-    var  book = Book.of(isbn, "Title", "Author", 9.90);
+    var  book = Book.of(isbn, "Title", "Author", 9.90, "Polarsophia");
     when(bookRepository.findByIsbn(isbn)).thenReturn(Optional.empty());
     assertThatThrownBy(() -> bookService.viewBookDetails(isbn))
         .isInstanceOf(BookNotFoundException.class)
